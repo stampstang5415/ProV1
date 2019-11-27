@@ -251,7 +251,7 @@
       <div class="event_list">
         My List
         <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
-          newevent()
+          <div id="newevent"></div>
         </ons-carousel>
       </div>
 
@@ -552,6 +552,7 @@
     }
   </style>
   <script>
+    newevent();
     function getHomeData() {
       var code = localStorage.getItem('code');
       if (code) {
@@ -595,6 +596,19 @@
 
       });
     }
+    function newevent() {
+      let text
+      for (let i = 0; i < 5; i++) {
+
+        text += `<ons-carousel-item modifier="nodivider" id="Similar Movie 1" onclick="openEventDetails(this.id)">
+        <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>}`
+
+      };
+      if (document.getElementById("newevent") != null)
+        document.getElementById("newevent").innerHTML = "55555";
+    }
+
     // function detail(eid) {
     //   //  document.getElementById('eid');
     //   localStorage.setItem('id', eid);
