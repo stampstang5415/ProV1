@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link href="https://fonts.googleapis.com/css?family=Kanit|Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="ejs.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+    <script src="cordova.js"></script>
+    <!-- <script src="/__/firebase/7.5.0/firebase-app.js"></script>
+    <script src="/__/firebase/7.5.0/firebase-analytics.js"></script>
+    <script src="/__/firebase/init.js"></script> -->
+
+
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBMd3mtyZCKHTAtqzROwDD56QZjccbuk7M",
+            authDomain: "rer-system.firebaseapp.com"
+        };
+        firebase.initializeApp(config);
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                // User is signed in.
+                window.location.href = 'home5.html';
+                // ...
+            } else {
+                // User is signed out.
+                // ...
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+    <style>
+        * {
+            font-family: 'Allerta Stencil', sans-serif;
+        }
+
+        .page--full_bg__background {
+            background: url('https://www.gemmaetc.com/wp-content/uploads/2019/04/Free-Phone-Wallpapers-and-Backgrounds-12.jpg');
+        }
+    </style>
+</head>
+<ons-page modifier="full_bg">
+
+</ons-page>
+<div style="text-align: center; margin-top: 30px; ">
+    <p>
+        <img class=""
+            src="https://firebasestorage.googleapis.com/v0/b/rer-system.appspot.com/o/logor1.png?alt=media&token=e95dd6f6-76ff-488f-a1d0-df99960f6ee0"
+            width="60%" height="40%">
+    </p>
+
+</div>
+
+<body>
+
+</body>
+<script>
+
+</script>
+
+</html>

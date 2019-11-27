@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Register</title>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+    integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Kanit|Lato" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  <!-- <script src="ss.js"></script> -->
+  <script src="ejs.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+  <!-- <script src="/__/firebase/7.5.0/firebase-app.js"></script>
+  <script src="/__/firebase/7.5.0/firebase-analytics.js"></script>
+  <script src="/__/firebase/init.js"></script> -->
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBMd3mtyZCKHTAtqzROwDD56QZjccbuk7M",
+      authDomain: "rer-system.firebaseapp.com"
+
+    };
+    firebase.initializeApp(config);
+  </script>
+  <title>RERS Register</title>
+  <style>
+    * {
+      font-family: 'Allerta Stencil', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-back-button onclick="window.location.href = 'login.html'">Back</ons-back-button>
+      </div>
+      <div class="center" style="text-align: center;">Register Detail</div>
+    </ons-toolbar>
+    <div style="text-align: center; margin-top: 30px;">
+      <h1>Register</h1>
+      <p>
+        <ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input>
+      </p>
+      <p>
+        <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
+      </p>
+      <p style="margin-top: 30px;">
+        <ons-button style="background-color: rgb(37, 206, 236)" onclick="register()">Sign up for a new user</ons-button>
+      </p>
+    </div>
+  </ons-page>
+  <script>
+    function register() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+      firebase.auth().createUserWithEmailAndPassword(username, password).catch(function (error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        ons.notification.alert(error.code + ':' + error.message);
+      });
+    }
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        window.location.href = "home5.html";
+      }
+    });
+  </script>
+</body>
+
+
+</html>

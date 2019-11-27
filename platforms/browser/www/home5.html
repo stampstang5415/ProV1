@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>RERS</title>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+    integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Kanit|Lato" rel="stylesheet">
+  <script src="ejs.js"></script>
+  <script src="Apphome.js"></script>
+  <!-- <script src="ss.js"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+  <script src="/__/firebase/7.5.0/firebase-app.js"></script>
+  <script src="/__/firebase/7.5.0/firebase-analytics.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Kanit|Lato" rel="stylesheet">
+  <script>
+
+    var config = {
+      apiKey: "AIzaSyBMd3mtyZCKHTAtqzROwDD56QZjccbuk7M",
+      authDomain: "rer-system.firebaseapp.com",
+      databaseURL: "https://rer-system.firebaseio.com",
+      projectId: "rer-system",
+      storageBucket: "rer-system.appspot.com",
+      messagingSenderId: "725228316624"
+    };
+    firebase.initializeApp(config);
+
+    var db = firebase.firestore();
+
+    db.settings({
+      timestampsInSnapshots: true
+    });
+
+  </script>
+  <style>
+    * {
+      font-family: 'Allerta Stencil', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <ons-navigator id="myNavigator" page="login.html"></ons-navigator>
+
+
+  <!--  The Login Page -->
+
+  <template id="login.html">
+    <ons-page id="login">
+      <ons-toolbar>
+        <div class="center" style="color: rgb(255, 255, 255)">Welcome</div>
+        <div class="right">
+          <ons-if platform="android">
+            <ons-toolbar-button>
+              <ons-icon icon="fa-pencil"></ons-icon>
+            </ons-toolbar-button>
+            <ons-toolbar-button>
+              <ons-icon icon="ion-android-more-vertical"></ons-icon>
+            </ons-toolbar-button>
+          </ons-if>
+        </div>
+      </ons-toolbar>
+      <br><br><br><br><br><br><br>
+
+      <img onclick="openHome()" style="display: block; 
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;" class=""
+        src="https://firebasestorage.googleapis.com/v0/b/rer-system.appspot.com/o/logor1.png?alt=media&token=e95dd6f6-76ff-488f-a1d0-df99960f6ee0"
+        width="60%" height="40%">
+      <ons-row class="user_cover">
+        <!-- <ons-col onclick="openHome()">
+          <div class="user_thumbnail" style="background-color: #dd6218">
+            <ons-icon icon="fa-beer"></ons-icon>
+          </div>
+          <div class="username" id="user_2_name">David</div>
+        </ons-col>
+        <ons-col onclick="openHome()">
+          <div class="user_thumbnail" style="background-color: #00a899">
+            <ons-icon icon="fa-heart"></ons-icon>
+          </div>
+          <div class="username" id="user_2_name">Marta</div>
+        </ons-col> -->
+      </ons-row>
+      <ons-row class="user_cover">
+
+        <!-- <img style="display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;" class=""
+          src="https://firebasestorage.googleapis.com/v0/b/shopper-45945.appspot.com/o/icon%2Fpngguru.com-id-bbetv(7).png?alt=media&token=decfdba6-65ca-42c6-81ea-c28e54c17154"
+          width="60%" height="40%"> -->
+        <!-- <ons-col onclick="openHome()">
+          <div class="user_thumbnail" style="background-color: #e3aa05">
+            <ons-icon icon="fa-headphones"></ons-icon>
+          </div>
+          <div class="username" id="user_2_name">Mark</div>
+        </ons-col>
+        <ons-col onclick="openHome()">
+          <div class="user_thumbnail" style="background-color: #94b052">
+            <ons-icon icon="fa-gamepad"></ons-icon>
+          </div>
+          <div class="username" id="username_4">Kevin</div>
+        </ons-col> -->
+        <!-- </ons-row>
+      <ons-row class="user_cover">
+        <ons-col onclick="openHome()">
+          <div class="user_thumbnail">
+            <ons-icon icon="fa-plus-circle"></ons-icon>
+          </div>
+
+        </ons-col>
+      </ons-row> -->
+
+        <style type="text/css">
+          .user_cover {
+            padding: 0px 40px;
+            margin: 20px 0px;
+          }
+
+          .username {
+            text-align: center;
+            color: white;
+            width: 100%;
+            font-size: 12px;
+            margin-top: 5px;
+          }
+
+          .user_thumbnail {
+            width: 100px;
+            height: 100px;
+            display: table;
+            text-align: center;
+            margin: auto;
+          }
+
+          .user_thumbnail ons-icon {
+            font-size: 70px;
+            display: table-cell;
+            vertical-align: middle;
+          }
+        </style>
+    </ons-page>
+  </template>
+
+
+  <!--  The Splitter Page -->
+
+  <template id="home_splitter.html">
+    <ons-page id="home_splitter">
+      <ons-splitter>
+        <ons-splitter-side id="menu" page="menu.html" side="left" width="220px" collapse swipeable></ons-splitter-side>
+        <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+      </ons-splitter>
+    </ons-page>
+  </template>
+
+
+  <!--  The Splitter Menu -->
+
+  <template id="menu.html">
+    <ons-page id="menu">
+      <ons-list style="background-color: transparent;">
+        <ons-list-header class="menu_header">User</ons-list-header>
+        <ons-list-item tappable>News</ons-list-item>
+        <ons-list-item tappable>Profile</ons-list-item>
+        <ons-list-item tappable>History</ons-list-item>
+        <ons-list-header class="menu_header">Options</ons-list-header>
+        <ons-list-item tappable>Account Settings</ons-list-item>
+        <!-- <ons-list-item tappable>Global Settings</ons-list-item> -->
+        <ons-list-item onclick="logout()" tappable>Logout</ons-list-item>
+      </ons-list>
+
+      <style type="text/css">
+        .menu_header {
+          background-color: black;
+          border-bottom: 1px solid rgba(147, 145, 145, 0.76);
+          color: white;
+          height: 25px;
+          font-size: 10px;
+          padding: 0 0 0 16px !important;
+        }
+      </style>
+    </ons-page>
+  </template>
+
+
+  <!--  The Home Page -->
+
+  <template id="home.html">
+    <ons-page id="home">
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button id="menu_button">
+            <ons-icon icon="fa-bars"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center" style="color: red">HOME PAGE</div>
+        <div class="right">
+          <ons-toolbar-button>
+            <ons-icon icon="fa-search"></ons-icon>
+          </ons-toolbar-button>
+          <ons-if platform="android">
+            <ons-toolbar-button>
+              <ons-icon icon="ion-android-more-vertical"></ons-icon>
+            </ons-toolbar-button>
+          </ons-if>
+        </div>
+      </ons-toolbar>
+
+
+      <ons-carousel class="carousel" swipeable auto-scroll id="carousel">
+        <ons-carousel-item>
+          <img src="https://storage.googleapis.com/s.race.thai.run/files/5eed2523-a7ed-45ec-b0b0-6540e34f1218.jpeg" />
+        </ons-carousel-item>
+        <ons-carousel-item>
+          <img src="https://storage.googleapis.com/s.race.thai.run/files/e7a8211d-def1-4e84-9475-bd2253273873.jpeg" />
+        </ons-carousel-item>
+        <ons-carousel-item>
+          <img src="https://storage.googleapis.com/s.race.thai.run/files/65a3d9ff-13a9-4ddd-be65-22214c096864.jpeg" />
+        </ons-carousel-item>
+      </ons-carousel>
+      <div class="cover-label center">
+        <ul>
+          <li>
+            <div id="dot0" class="circle circle_current">&#x25cf;</div>
+          </li>
+          <li>
+            <div id="dot1" class="circle">&#x25cf;</div>
+          </li>
+          <li>
+            <div id="dot2" class="circle">&#x25cf;</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="event_list">
+        My List
+        <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
+          <div id="newevent"></div>
+        </ons-carousel>
+      </div>
+
+      <div class="event_list">
+        Top Picks For You
+        <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
+          <ons-carousel-item modifier="nodivider" id="Top Movie 1" onclick="openEventDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Top Movie 2" onclick="openEventDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Top Movie 3" onclick="openEventDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Top Movie 4" onclick="openEventDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Top Movie 5" onclick="openEventDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+        </ons-carousel>
+      </div>
+
+      <div class="event_list">
+        Recently Added
+        <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
+          <ons-carousel-item modifier="nodivider" id="Recent Movie 1" class="event_cover"
+            onclick="openEventDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Recent Movie 2" class="event_cover"
+            onclick="openEventDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Recent Movie 3" class="event_cover"
+            onclick="openEventDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Recent Movie 4" class="event_cover"
+            onclick="openEventDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Recent Movie 5" class="event_cover"
+            onclick="openEventDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+        </ons-carousel>
+      </div>
+
+      <style type="text/css">
+        .carousel ons-carousel-item img {
+          width: 100%;
+          max-height: 190px
+        }
+
+        .cover-label {
+          text-align: center;
+          cursor: default;
+        }
+
+        ul {
+          list-style: none;
+          padding: 0;
+        }
+
+        ul li {
+          display: inline;
+          margin-right: 5px;
+        }
+
+        .circle {
+          font-size: 15px;
+          display: table-cell;
+          color: #999;
+
+        }
+
+        .circle_current {
+          color: white;
+        }
+
+        .event_list {
+          margin: 10px;
+          height: 130px;
+          padding-top: 30px;
+        }
+
+        .event_list img {
+          width: 90%
+        }
+      </style>
+    </ons-page>
+  </template>
+
+
+  <!--  The event Detail Page -->
+
+  <template id="event_details.html">
+    <ons-page id="event_details">
+      <ons-toolbar class="trailer_toolbar" modifier="transparent" inline>
+        <div class="left">
+          <ons-if platform="android">
+            <ons-back-button>Back</ons-back-button>
+          </ons-if>
+        </div>
+        <div class="right">
+          <!-- <ons-if platform="android">
+            <ons-toolbar-button>
+              <ons-icon icon="md-cast"></ons-icon>
+            </ons-toolbar-button>
+            <ons-toolbar-button>
+              <ons-icon icon="md-share"></ons-icon>
+            </ons-toolbar-button>
+            <ons-toolbar-button>
+              <ons-icon icon="fa-search"></ons-icon>
+            </ons-toolbar-button>
+          </ons-if> -->
+          <ons-if platform="ios">
+            <ons-toolbar-button onclick="goBack()">
+              <ons-icon style="opacity: 0.7; color: black" icon="ion-ios-close"></ons-icon>
+            </ons-toolbar-button>
+          </ons-if>
+        </div>
+      </ons-toolbar>
+      <!-- <div id="detail"></div>
+      <script id="detail_template" type="text/template">
+        <% detail.forEach(function(data){   
+          var data = data.data(); %> -->
+      <div class="trailer">
+        <!-- <ons-icon icon="fa-play-circle"></ons-icon> -->
+        <img
+          src="https://cdn.fanaticrun.com/assets/media/image/Kanchanaburi-Charity-Run-2019/Banner-Kanchanaburi-Charity-Run-2019.jpg">
+      </div>
+
+      <div class="event_info">
+        <!-- <div class="title">
+          <h2><%= data.title %></h2>
+        </div> -->
+        <h2 id="event_title"></h2>
+        <ons-row class="event_general_info">
+          <!-- <ons-col class="stars">
+            <ons-icon style="color: red" icon="fa-star"></ons-icon>
+            <ons-icon style="color: red" icon="fa-star"></ons-icon>
+            <ons-icon style="color: red" icon="fa-star"></ons-icon>
+            <ons-icon style="color: red" icon="fa-star"></ons-icon>
+            <ons-icon style="color: gray" icon="fa-star"></ons-icon>
+          </ons-col> -->
+          <ons-col>2016</ons-col>
+          <ons-col>TV-14</ons-col>
+          <ons-col>2h 0m</ons-col>
+        </ons-row>
+        <div class="movie_synopsis">When the protagonist was a child, he dreamed of becoming a hero of a story that
+          everyone
+          will know. As he aged, he realized his dreams are just that - dreams and nothing more. But never did he expect
+          that
+          when he turned 21 years old, the unexpected would have happened and that the story he was longing for will
+          start to
+          unfold.</div>
+        <div class="movie_cast">
+          Cast: Actor 1, Actress 1, Actor 2, Actress 2 <br />
+          Director: Popular Director
+        </div>
+        <ons-row class="movie_extra_buttons">
+          <ons-col>
+            <ons-button modifier="quiet">
+              <ons-icon icon="ion-plus-round"></ons-icon>
+              <div>My List</div>
+            </ons-button>
+          </ons-col>
+          <ons-col>
+            <ons-if platform="ios">
+              <ons-button modifier="quiet">
+                <ons-icon icon="ion-ios-upload-outline"></ons-icon>
+                <div>Share</div>
+              </ons-button>
+            </ons-if>
+          </ons-col>
+        </ons-row>
+        <!-- <%})%> -->
+      </div>
+
+      <div class="event_list">
+        Similar Events
+        <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
+          <ons-carousel-item modifier="nodivider" id="Similar Movie 1" onclick="openEventDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Similar Movie 2" onclick="openEventDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Similar Movie 3" onclick="openEventDetails(this.id)">
+            <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>
+        </ons-carousel>
+      </div>
+
+      <style type="text/css">
+        .trailer {
+          height: 190px;
+          position: relative;
+        }
+
+        .trailer img {
+          width: 100%;
+          height: 100%
+        }
+
+        .trailer ons-icon {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          font-size: 50px;
+          margin-top: -25px;
+          margin-left: -25px;
+          color: #666;
+          background: white;
+          width: 50px;
+          text-align: center;
+          border-radius: 50%;
+          opacity: 0.7;
+        }
+
+        .trailer ons-icon:active {
+          opacity: 1;
+        }
+
+        .trailer_toolbar {
+          position: absolute;
+        }
+
+        .event_info {
+          padding: 0px 10px;
+          font-size: 14px;
+        }
+
+        .event_general_info {
+          width: 250px;
+          margin-bottom: 15px;
+          color: gray;
+        }
+
+        .event_synopsis {
+          text-align: justify;
+          margin-bottom: 10px;
+        }
+
+        .event_cast {
+          color: gray;
+        }
+
+        .stars {
+          white-space: nowrap;
+          margin-right: 15px
+        }
+
+        .event_extra_buttons {
+          margin-top: 20px;
+          width: 50%;
+        }
+
+        .event_extra_buttons ons-icon {
+          font-size: 25px;
+        }
+
+        .event_extra_buttons ons-button {
+          text-align: center;
+          color: white;
+          font-size: 14px;
+        }
+
+        .event_extra_buttons ons-button:active {
+          color: #96003c;
+        }
+      </style>
+    </ons-page>
+  </template>
+
+  <style type="text/css">
+    .page {
+      color: white;
+    }
+
+    .page__background {
+      background: url('https://www.gemmaetc.com/wp-content/uploads/2019/04/Free-Phone-Wallpapers-and-Backgrounds-12.jpg');
+    }
+
+    .toolbar:not(.toolbar--transparent) {
+      background-color: black;
+    }
+
+    .toolbar-button {
+      color: white;
+    }
+
+    .list-item {
+      color: white;
+    }
+  </style>
+  <script>
+    newevent();
+    function getHomeData() {
+      var code = localStorage.getItem('code');
+      if (code) {
+        $('#search').val(code);
+      }
+      var docRef = db.collection("UI").doc("home");
+      docRef.get().then(function (doc) {
+        if (doc.exists) {
+          console.log("Document data:", doc.data());
+          var data = doc.data();
+          // console.log("test", data.appname);
+          // $('#appname').html(data.appname);
+          var carousel1 = data.slides[0];
+          // $('#carousel1').attr('src', src);
+          var carousel2 = data.slides[1];
+          // $('#carousel2').attr('src', src);
+          var carousel3 = data.slides[2];
+          // $('#carousel3').attr('src', src);
+
+          // $('#icon1').attr('icon', data.categories[0].icon);
+          // $('#Category_1_name').html(data.categories[0].name);
+          // var icon_template = $('#icon_template').html();
+          // var html = ejs.render(icon_template, {
+          //   categories: data.categories
+          // });
+          // $('#icon').html(html);
+        } else {
+
+          console.log("No such document!");
+        }
+      }).catch(function (error) {
+        console.log("Error getting document:", error);
+      });
+
+    }
+    function logout() {
+      firebase.auth().signOut().then(function () {
+        ons.notification.alert('Login Pls.');
+        window.location.href = "login.html";
+      }).catch(function (error) {
+
+      });
+    }
+    function newevent() {
+      let text
+      for (let i = 0; i < 5; i++) {
+
+        text += `<ons-carousel-item modifier="nodivider" id="Similar Movie 1" onclick="openEventDetails(this.id)">
+        <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>}`
+
+      };
+      document.getElementById("newevent").innerHTML = text;
+    }
+
+    // function detail(eid) {
+    //   //  document.getElementById('eid');
+    //   localStorage.setItem('id', eid);
+    //   myNavigator.pushPage('event_details.html')
+    //   showdetail()
+    //   }
+    // function showdetail() {
+    //   // var id = localStorage.getItem('id');
+    //   db.collection("Running event").where("eid", "==", id).get()
+    //     .then(function (querySnapshot) {
+
+    //       console.log(querySnapshot.docs)
+    //       var detail_template = $('#detail_template').html();
+    //       var html = ejs.render(detail_template, { detail: querySnapshot.docs });
+    //       $('#detail').html(html);
+    //     })
+    //     .catch(function (error) {
+    //       console.log("Error getting documents: ", error);
+    //     });
+    //   localStorage.clear();
+    // }
+  </script>
+
+
+</html>

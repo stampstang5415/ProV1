@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "725228316624",
+    "firebase_url": "https://rer-system.firebaseio.com",
+    "project_id": "rer-system",
+    "storage_bucket": "rer-system.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725228316624:android:b5af41a54e0b3df9777bd5",
+        "android_client_info": {
+          "package_name": "com.coc.rers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "725228316624-20u1s21a1e8rqn140flldtd5sv7d46aa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQxBOHfusAZ0Zk5eKiIlyCE4X8fpc_GBo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "725228316624-20u1s21a1e8rqn140flldtd5sv7d46aa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
