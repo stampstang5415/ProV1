@@ -35,16 +35,12 @@
     * {
       font-family: 'Allerta Stencil', sans-serif;
     }
-
-    .page--full_bg__background {
-      background: url('https://www.gemmaetc.com/wp-content/uploads/2019/04/Free-Phone-Wallpapers-and-Backgrounds-12.jpg');
-    }
   </style>
 </head>
 
 <body>
-  <ons-page modifier="full_bg">
-    <ons-toolbar style="background-color: rgb(224, 220, 215)">
+  <ons-page>
+    <ons-toolbar>
       <div class="left">
         <ons-back-button onclick="window.location.href = 'login.html'">Back</ons-back-button>
       </div>
@@ -52,32 +48,37 @@
     </ons-toolbar>
     <div style="text-align: center; margin-top: 30px;">
       <h1>Register</h1>
+
       <p>
-        <ons-input id="username" modifier="underbar" placeholder="Email" float></ons-input>
+
       </p>
       <p>
         <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
       </p>
       <p style="margin-top: 30px;">
-        <ons-button style="background-color: rgb(233, 128, 31)" onclick="register()">Sign up for a new user</ons-button>
+        <ons-button style="background-color: rgb(37, 206, 236)" onclick="profile()">Sign up for a new user</ons-button>
       </p>
     </div>
   </ons-page>
   <script>
-    function register() {
-      var username = document.getElementById('username').value;
-      var password = document.getElementById('password').value;
-      firebase.auth().createUserWithEmailAndPassword(username, password).catch(function (error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        ons.notification.alert(error.code + ':' + error.message);
-      });
-    }
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        window.location.href = "home5.html";
+    profile()
+    function profile() {
+      var user = firebase.auth().currentUser;
+      var name, email, photoUrl, uid, emailVerified;
+
+      if (user != null) {
+        name = user.displayName;
+        email = user.email;
+        photoUrl = user.photoURL;
+        emailVerified = user.emailVerified;
+        uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
+        // this value to authenticate with your backend server, if
+        // you have one. Use User.getToken() instead.
       }
-    });
+
+
+    }
+
   </script>
 </body>
 

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>RERS</title>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+    integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="menu.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Kanit|Lato" rel="stylesheet">
+  <script src="ejs.js"></script>
+  <script src="Apphome.js"></script>
+  <script src="menu.js"></script>
+  <!-- <script src="ss.js"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+  <script src="/__/firebase/7.5.0/firebase-app.js"></script>
+  <script src="/__/firebase/7.5.0/firebase-analytics.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Kanit|Lato" rel="stylesheet">
+  <script>
+
+    var config = {
+      apiKey: "AIzaSyBMd3mtyZCKHTAtqzROwDD56QZjccbuk7M",
+      authDomain: "rer-system.firebaseapp.com",
+      databaseURL: "https://rer-system.firebaseio.com",
+      projectId: "rer-system",
+      storageBucket: "rer-system.appspot.com",
+      messagingSenderId: "725228316624"
+    };
+    firebase.initializeApp(config);
+
+    var db = firebase.firestore();
+
+    db.settings({
+      timestampsInSnapshots: true
+    });
+
+  </script>
+  <style>
+    * {
+      font-family: 'Allerta Stencil', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <!-- Use any element to open the sidenav -->
+  <!-- <span onclick="openNav()">open</span> -->
+
+  <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+
+  <ons-page modifier="full_bg">
+    <ons-toolbar style="background-color: rgb(114, 111, 108)">
+      <div class="left">
+        <ons-toolbar-button onclick="openNav()">
+          <ons-icon icon="fa-bars"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center" style="text-align: center;">Register Detail</div>
+    </ons-toolbar>
+  </ons-page>
+  <div id="main">
+
+    <script>
+      // newevent();
+      // function getHomeData() {
+      //   var code = localStorage.getItem('code');
+      //   if (code) {
+      //     $('#search').val(code);
+      //   }
+      //   var docRef = db.collection("UI").doc("home");
+      //   docRef.get().then(function (doc) {
+      //     if (doc.exists) {
+      //       console.log("Document data:", doc.data());
+      //       var data = doc.data();
+      //       // console.log("test", data.appname);
+      //       // $('#appname').html(data.appname);
+      //       var carousel1 = data.slides[0];
+      //       // $('#carousel1').attr('src', src);
+      //       var carousel2 = data.slides[1];
+      //       // $('#carousel2').attr('src', src);
+      //       var carousel3 = data.slides[2];
+      //       // $('#carousel3').attr('src', src);
+
+      //       // $('#icon1').attr('icon', data.categories[0].icon);
+      //       // $('#Category_1_name').html(data.categories[0].name);
+      //       // var icon_template = $('#icon_template').html();
+      //       // var html = ejs.render(icon_template, {
+      //       //   categories: data.categories
+      //       // });
+      //       // $('#icon').html(html);
+      //     } else {
+
+      //       console.log("No such document!");
+      //     }
+      //   }).catch(function (error) {
+      //     console.log("Error getting document:", error);
+      //   });
+
+      // }
+      function profile() {
+        window.location.href = "profile.html";
+
+      }
+      // profile
+      function logout() {
+        firebase.auth().signOut().then(function () {
+          ons.notification.alert('Login Pls.');
+          window.location.href = "login.html";
+        }).catch(function (error) {
+
+        });
+      }
+      function newevent() {
+        let text
+        for (let i = 0; i < 5; i++) {
+
+          text += `<ons-carousel-item modifier="nodivider" id="Similar Movie 1" onclick="openEventDetails(this.id)">
+        <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>}`
+
+        };
+        if (document.getElementById("newevent") != null)
+          document.getElementById("newevent").innerHTML = "55555";
+      }
+
+    // function detail(eid) {
+    //   //  document.getElementById('eid');
+    //   localStorage.setItem('id', eid);
+    //   myNavigator.pushPage('event_details.html')
+    //   showdetail()
+    //   }
+    // function showdetail() {
+    //   // var id = localStorage.getItem('id');
+    //   db.collection("Running event").where("eid", "==", id).get()
+    //     .then(function (querySnapshot) {
+
+    //       console.log(querySnapshot.docs)
+    //       var detail_template = $('#detail_template').html();
+    //       var html = ejs.render(detail_template, { detail: querySnapshot.docs });
+    //       $('#detail').html(html);
+    //     })
+    //     .catch(function (error) {
+    //       console.log("Error getting documents: ", error);
+    //     });
+    //   localStorage.clear();
+    // }
+    </script>
+
+
+</html>

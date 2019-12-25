@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -61,18 +61,8 @@
 
   <template id="login.html">
     <ons-page id="login">
-      <ons-toolbar>
+      <ons-toolbar style="color: rgb(235, 145, 72)">
         <div class="center" style="color: rgb(255, 255, 255)">Welcome</div>
-        <div class="right">
-          <ons-if platform="android">
-            <ons-toolbar-button>
-              <ons-icon icon="fa-pencil"></ons-icon>
-            </ons-toolbar-button>
-            <ons-toolbar-button>
-              <ons-icon icon="ion-android-more-vertical"></ons-icon>
-            </ons-toolbar-button>
-          </ons-if>
-        </div>
       </ons-toolbar>
       <br><br><br><br><br><br><br>
 
@@ -177,17 +167,17 @@
       <ons-list style="background-color: transparent;">
         <ons-list-header class="menu_header">User</ons-list-header>
         <ons-list-item tappable>News</ons-list-item>
-        <ons-list-item tappable>Profile</ons-list-item>
-        <ons-list-item tappable>History</ons-list-item>
+        <ons-list-item onclick="profile()" tappable>Profile</ons-list-item>
+        <ons-list-item tappable>Interested</ons-list-item>
         <ons-list-header class="menu_header">Options</ons-list-header>
-        <ons-list-item tappable>Account Settings</ons-list-item>
+        <!-- <ons-list-item tappable>Account Settings</ons-list-item> -->
         <!-- <ons-list-item tappable>Global Settings</ons-list-item> -->
-        <ons-list-item onclick="logout()" tappable>Logout</ons-list-item>
+        <ons-list-item onclick="logout()" tappable>Sign Out</ons-list-item>
       </ons-list>
 
       <style type="text/css">
         .menu_header {
-          background-color: black;
+          background-color: rgb(245, 137, 37);
           border-bottom: 1px solid rgba(147, 145, 145, 0.76);
           color: white;
           height: 25px;
@@ -249,55 +239,86 @@
       </div>
 
       <div class="event_list">
-        My List
+        Interested
         <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
-          <div id="newevent"></div>
+          <ons-carousel-item modifier="nodivider" id="MY LITTLE PONY RUN BANGKOK" onclick="openEventDetails(this.id)">
+            <img src="https://storage.googleapis.com/s.race.thai.run/files/c2727dfd-acc4-4e0d-84c0-13811b482e0d.jpeg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="MOOMIN Run 2019" onclick="openEventDetails(this.id)">
+            <img src="http://goodsportsthailand.com/MOOMIN-Run-2019/images/hero.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Black & White and Run 2020" onclick="openEventDetails(this.id)">
+            <img src="https://storage.googleapis.com/s.race.thai.run/files/49a0369b-373e-4214-bf35-b9df0c0b4396.jpeg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="AIDS-ALMOST ZERO RUN" onclick="openEventDetails(this.id)">
+            <img src="https://storage.googleapis.com/s.race.thai.run/files/e14d9170-7550-454b-9e98-532ea3d0528a.jpeg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="MMT (Minimal Maewa Trail) " onclick="openEventDetails(this.id)">
+            <img src="https://storage.googleapis.com/s.race.thai.run/files/b62d9b78-9362-411a-9c6b-94d34ae02d90.jpeg">
+          </ons-carousel-item>
+          <!-- <div id="newevent">
+            <script id="product_template" type="text/template">
+           <% for (let i = 0; i < 5; i++) {%>
+             <ons-carousel-item modifier="nodivider" id="Similar Movie 1" onclick="openEventDetails(this.id)">
+        <img src="assets/img/movie_cover_template.jpg"> -->
+          </ons-carousel-item>
+          <!-- <%  };%> -->
+          <!-- text += `<ons-carousel-item modifier="nodivider" id="Similar Movie 1" onclick="openEventDetails(this.id)">
+        <img src="assets/img/movie_cover_template.jpg">
+          </ons-carousel-item>}` -->
+
+
+
+          </Script>
+      </div>
+      </ons-carousel>
+      </div>
+
+      <div class="event_list">
+        Recoomendation
+        <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
+          <ons-carousel-item modifier="nodivider" id="RUNgather Zodiac Series Challenge 2020"
+            onclick="openEventDetails(this.id)">
+            <img src="https://storage.googleapis.com/s.race.thai.run/files/56e00230-ae18-48a2-b4dc-66ff26251fad.jpeg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="ASEAN TOGETHER RUN 2019" onclick="openEventDetails(this.id)">
+            <img src="https://storage.googleapis.com/s.race.thai.run/media/bbb90793-9679-4d42-acc7-9ed31c2671d5.jpg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="BANGSAEN42 CHONBURI MARATHON 2019 (Oversea)"
+            onclick="openEventDetails(this.id)">
+            <img
+              src="https://storage.googleapis.com/storage.race.phuket.run/files/ba9e9e15-63da-43f5-9354-d587f6d9780b.jpeg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Run Cat Cat" onclick="openEventDetails(this.id)">
+            <img src="https://storage.googleapis.com/s.race.thai.run/files/29dea69a-bcf0-496c-bf44-74f552c527a7.jpeg">
+          </ons-carousel-item>
+          <ons-carousel-item modifier="nodivider" id="Thai Health - We Shall Run" onclick="openEventDetails(this.id)">
+            <img src="https://storage.googleapis.com/s.race.thai.run/files/f27ad836-3968-40e9-a834-429f1a468381.jpeg">
+          </ons-carousel-item>
         </ons-carousel>
       </div>
 
       <div class="event_list">
-        Top Picks For You
+        Around the corner
         <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
-          <ons-carousel-item modifier="nodivider" id="Top Movie 1" onclick="openEventDetails(this.id)">
-            <img src="assets/img/movie_cover_template.jpg">
+          <ons-carousel-item modifier="nodivider" id="KU RUN" class="event_cover" onclick="openEventDetails(this.id)">
+            <img src="https://storage.googleapis.com/s.race.thai.run/files/4f2c4de4-aab7-4b89-892b-40d2c22bc185.jpeg">
           </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Top Movie 2" onclick="openEventDetails(this.id)">
-            <img src="assets/img/movie_cover_template.jpg">
-          </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Top Movie 3" onclick="openEventDetails(this.id)">
-            <img src="assets/img/movie_cover_template.jpg">
-          </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Top Movie 4" onclick="openEventDetails(this.id)">
-            <img src="assets/img/movie_cover_template.jpg">
-          </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Top Movie 5" onclick="openEventDetails(this.id)">
-            <img src="assets/img/movie_cover_template.jpg">
-          </ons-carousel-item>
-        </ons-carousel>
-      </div>
-
-      <div class="event_list">
-        Recently Added
-        <ons-carousel auto-refresh swipeable overscrollable item-width="110px">
-          <ons-carousel-item modifier="nodivider" id="Recent Movie 1" class="event_cover"
+          <ons-carousel-item modifier="nodivider" id="ET (EVIL Trail)" class="event_cover"
             onclick="openEventDetails(this.id)">
-            <img src="assets/img/movie_cover_template.jpg">
+            <img src="https://storage.googleapis.com/s.race.thai.run/files/7ed3c3fe-cd8b-4d4a-932a-089397e2a96a.jpeg">
           </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Recent Movie 2" class="event_cover"
+          <ons-carousel-item modifier="nodivider" id="MOOMIN Run 2019" class="event_cover"
             onclick="openEventDetails(this.id)">
-            <img src="assets/img/movie_cover_template.jpg">
+            <img src="http://goodsportsthailand.com/MOOMIN-Run-2019/images/hero.jpg">
           </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Recent Movie 3" class="event_cover"
-            onclick="openEventDetails(this.id)">
-            <img src="assets/img/movie_cover_template.jpg">
+          <ons-carousel-item modifier="nodivider" id="Bangsaen10 Mini Marathon 2020 (GARMIN Package)"
+            class="event_cover" onclick="openEventDetails(this.id)">
+            <img src="https://storage.googleapis.com/assets.thai.run/race/events/BS10/cover/Cover-GARMIN.jpg">
           </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Recent Movie 4" class="event_cover"
+          <ons-carousel-item modifier="nodivider" id="TOWN RUN 2" class="event_cover"
             onclick="openEventDetails(this.id)">
-            <img src="assets/img/movie_cover_template.jpg">
-          </ons-carousel-item>
-          <ons-carousel-item modifier="nodivider" id="Recent Movie 5" class="event_cover"
-            onclick="openEventDetails(this.id)">
-            <img src="assets/img/movie_cover_template.jpg">
+            <img src="https://storage.googleapis.com/s.race.thai.run/files/a4c10deb-ce59-4fd9-80e7-3f789610aede.jpeg">
           </ons-carousel-item>
         </ons-carousel>
       </div>
@@ -588,6 +609,11 @@
       });
 
     }
+    function profile() {
+      window.location.href = "profile.html";
+
+    }
+    // profile
     function logout() {
       firebase.auth().signOut().then(function () {
         ons.notification.alert('Login Pls.');
@@ -605,7 +631,8 @@
           </ons-carousel-item>}`
 
       };
-      document.getElementById("newevent").innerHTML = text;
+      if (document.getElementById("newevent") != null)
+        document.getElementById("newevent").innerHTML = "55555";
     }
 
     // function detail(eid) {
