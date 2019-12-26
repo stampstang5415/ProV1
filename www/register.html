@@ -25,10 +25,18 @@
     // Initialize Firebase
     var config = {
       apiKey: "AIzaSyBMd3mtyZCKHTAtqzROwDD56QZjccbuk7M",
-      authDomain: "rer-system.firebaseapp.com"
+      authDomain: "rer-system.firebaseapp.com",
+      databaseURL: "https://rer-system.firebaseio.com",
+      projectId: "rer-system",
+      storageBucket: "rer-system.appspot.com",
+      messagingSenderId: "725228316624"
 
     };
     firebase.initializeApp(config);
+    var db = firebase.database();
+var storage = firebase.storage();
+var fireDb = firebase.firestore();
+
   </script>
   <title>RERS Register</title>
   <style>
@@ -67,6 +75,20 @@
     function register() {
       var username = document.getElementById('username').value;
       var password = document.getElementById('password').value;
+      const ref = fireDb.collection("USER").doc();
+      let xxxx = {
+        username: username,
+    password: password,
+    number : Math.floor(Math.random() * 30) + 1  
+      };
+      try {
+         ref.set(xxxx);
+         alert(xxxx);
+         xxxx="";
+      } catch (e) {
+        // TODO: error handling
+        console.error(e);
+      }
       firebase.auth().createUserWithEmailAndPassword(username, password).catch(function (error) {
         var errorCode = error.code;
         var errorMessage = error.message;
@@ -75,7 +97,8 @@
     }
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
-        window.location.href = "home5.html";
+
+        window.location.href = "home8.html";
       }
     });
   </script>
@@ -83,3 +106,8 @@
 
 
 </html>
+
+<script>
+
+
+</script>
