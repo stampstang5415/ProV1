@@ -35,7 +35,7 @@ BuildInfoProxy = {
 
         try {
             /* <EMBED_CODE> */
-            const json = {"debug":true,"buildDate":"2019-12-27T02:37:28.415Z","packageName":"com.coc.rers","basePackageName":"com.coc.rers","name":"RERS","displayName":"RERS","version":"1.0.0","versionCode":"1.0.0"};
+            const json = {"debug":true,"buildDate":"2019-12-27T03:22:03.657Z","packageName":"com.coc.rers","basePackageName":"com.coc.rers","name":"RERS","displayName":"RERS","version":"1.0.0","versionCode":"1.0.0"};
             /* </EMBED_CODE> */
 
             var ret = {

@@ -272,7 +272,9 @@
      <ons-row>
      
     <ons-col width="50%"  style="margin-top:10px ">
-      <ons-card  style="height:250px" onclick="detail('<%- recommend.pid %>')">
+      <p style="color:white; font-weight: bold; font-style: italic; margin-left:5px">  Recommended Events</p>
+      <p style="font-weight: bold; color:white;">______________________________________________________</p>
+      <ons-card  style="height:250px; background: rgb(14, 14, 14);" onclick="detail('<%- recommend.pid %>')">
             <img class="" src="<%= recommend.pic %>" width="160px" height="130px"><br>
             <div><%= recommend.Category %></div>
             <div style="color: rgb(255, 94, 0); font-weight: bold;"><%= recommend.title %></div>
@@ -291,7 +293,6 @@
 
   <template id="tab3.html">
     <ons-page>
-
       <div id="product"></div>
       <script id="product_template" type="text/template">
  <ons-row>
@@ -303,7 +304,7 @@
         <img class="" src="<%= products.pic %>" width="160px" height="130px"><br>
         <div><%= products.Category %></div>
         <div style="color: rgb(255, 94, 0);"><%= products.title %></div>
-        <div style="color:black; text-align:left;  font-style: oblique;"><%= products.category %></div>
+        <div style="color:white; text-align:left;  font-style: oblique;"><%= products.category %></div>
         <span style="color:darkgreen"><%= products.price %> บาท</span>
 
   </ons-card></ons-col>
